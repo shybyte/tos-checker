@@ -69,4 +69,4 @@ jQuery(function () {
     $('#closeButton,.close').click(function () {
         window.close();
     });
-})
+});

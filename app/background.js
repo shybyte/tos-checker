@@ -34,7 +34,7 @@ function getService(tab) {
 function getIconForService(service) {
     var rated = service.tosdr.rated;
     var imageName =  rated ? rated.toLowerCase() : 'false';
-    return '/images/class/'+imageName+'.png'
+    return '/images/class/'+imageName+'.png';
 }
 
 function onUrlChanged(tabId, changeInfo, tab) {
@@ -53,7 +53,3 @@ function onUrlChanged(tabId, changeInfo, tab) {
 }
 
 chrome.tabs.onUpdated.addListener(onUrlChanged);
-
-chrome.pageAction.onClicked.addListener(function (tab) {
-    alert(JSON.stringify(getService(tab)));
-});
