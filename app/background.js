@@ -4,10 +4,11 @@ function log(message) {
 
 var services = [];
 
-function loadService(serviceName,points) {
+function loadService(serviceName,serviceIndexData) {
     jQuery.ajax('http://tos-dr.info/services/' + serviceName + '.json', {success:function (service) {
         service.urlRegExp = new RegExp('https?://[^:]*' + service.url + '.*');
-        service.points = points.points;
+        service.points = serviceIndexData.points;
+        service.links = serviceIndexData.links;
         if (!service.tosdr) {
             service.tosdr = {rated:false};
         }
