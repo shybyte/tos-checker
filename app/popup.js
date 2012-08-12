@@ -64,7 +64,7 @@ jQuery(function () {
     function renderPopupHtml(name, longName, domain, verdict, ratingText, points, links) {
         var headerHtml = '<div class="modal-header">'
             + '<img src="http://tos-dr.info/logo/' + name + '.png" alt="" class="pull-left" height="36" >'
-            + '<h3>' + longName + ' <small class="service-url"><i class="icon icon-globe"></i> <a href="http://tos-dr.info/#' + name + '" target="_blank">tos-dr.info#' + name + '</a></small></h3></div> ';
+            + '<h3>' + longName + ' <small class="service-url"><i class="icon icon-globe"></i> <a href="http://tos-dr.info/#' + name + '" target="_blank">Rating from Terms of Service; Didn’t Read</a></small></h3></div> ';
         var classHtml = '<div class="tosdr-rating"><label class="label ' + verdict + '">'
             + (verdict ? 'Class ' + verdict : 'No Class Yet') + '</label><p>' + ratingText + '</p></div>';
         var pointsHtml = '';
