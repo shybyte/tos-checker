@@ -5,11 +5,11 @@ jQuery(function () {
             var badge, icon, sign;
             if (dataPoint.tosdr.point == 'good') {
                 badge = 'badge-success';
-                icon = 'thumbs-up';
+                icon = 'plus';
                 sign = '+';
             } else if (dataPoint.tosdr.point == 'mediocre') {
                 badge = 'badge-warning';
-                icon = 'thumbs-down';
+                icon = 'minus';
                 sign = '-';
             } else if (dataPoint.tosdr.point == 'alert') {
                 badge = 'badge-important';
@@ -17,7 +17,7 @@ jQuery(function () {
                 sign = '×';
             } else if (dataPoint.tosdr.point == 'not bad') {
                 badge = 'badge-neutral';
-                icon = 'hand-right';
+                icon = 'arrow-right';
                 sign = '→';
             } else {
                 badge = '';
@@ -64,7 +64,8 @@ jQuery(function () {
     function renderPopupHtml(name, longName, domain, verdict, ratingText, points, links) {
         var headerHtml = '<div class="modal-header">'
             + '<img src="http://tos-dr.info/logo/' + name + '.png" alt="" class="pull-left" height="36" >'
-            + '<h3>' + longName + ' <small class="service-url"><i class="icon icon-globe"></i> <a href="http://tos-dr.info/#' + name + '" target="_blank">tos-dr.info#' + name + '</a></small></h3></div> ';
+            + '<h3>' + longName + ' <small class="service-url"><i class="icon icon-globe"></i> <a href="http://tos-dr.info/#' + name + '" target="_blank">Rating from Terms of Service; Didn’t Read</a></small>'
+            + '<button id="closeButton" data-dismiss="modal" class="close pull-right" type="button">×</button></h3></div>';
         var classHtml = '<div class="tosdr-rating"><label class="label ' + verdict + '">'
             + (verdict ? 'Class ' + verdict : 'No Class Yet') + '</label><p>' + ratingText + '</p></div>';
         var pointsHtml = '';

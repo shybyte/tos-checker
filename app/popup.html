@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>TOS Checker Popup</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
@@ -10,27 +11,24 @@
     <style type="text/css">
         body {
             width: 40em;
-        }
-
-        .footer {
-            border-top: 1px solid #EEE;
-            padding-top: 1em;
-            margin-bottom: 1em;
+            padding:0;
+            margin:0;
         }
 
         #tosdrLink {
             float: right;
         }
 
+        .modal-header img { margin:-.4em .5em 0 0; }
+        #closeButton { margin-right:-.5em; }
+
+        ::-webkit-scrollbar { width:.2em; }
+        ::-webkit-scrollbar-thumb { background:rgba(50,50,50,.3); }
     </style>
 </head>
 <body>
 <div id="page">
     Loading ...
-</div>
-<div class="footer">
-    <a id="tosdrLink" href="http://tos-dr.info" target="_blank">tos-dr.info</a>
-    <button id="closeButton">Close</button>
 </div>
 </body>
 </html>
