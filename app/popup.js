@@ -5,11 +5,11 @@ jQuery(function () {
             var badge, icon, sign;
             if (dataPoint.tosdr.point == 'good') {
                 badge = 'badge-success';
-                icon = 'thumbs-up';
+                icon = 'plus';
                 sign = '+';
             } else if (dataPoint.tosdr.point == 'mediocre') {
                 badge = 'badge-warning';
-                icon = 'thumbs-down';
+                icon = 'minus';
                 sign = '-';
             } else if (dataPoint.tosdr.point == 'alert') {
                 badge = 'badge-important';
@@ -17,7 +17,7 @@ jQuery(function () {
                 sign = '×';
             } else if (dataPoint.tosdr.point == 'not bad') {
                 badge = 'badge-neutral';
-                icon = 'hand-right';
+                icon = 'arrow-right';
                 sign = '→';
             } else {
                 badge = '';
