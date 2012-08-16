@@ -18,7 +18,7 @@ function loadService(serviceName,serviceIndexData) {
 }
 
 
-jQuery.ajax('http://tos-dr.info/index/services2.json', {success:function (servicesIndex) {
+jQuery.ajax('http://tos-dr.info/index/services.json', {success:function (servicesIndex) {
     for (var serviceName in servicesIndex) {
         loadService(serviceName,servicesIndex[serviceName]);
     }
