@@ -1,5 +1,5 @@
 {
-  "name": "Terms of Services Checker",
+  "name": "Terms of Service; Didn’t Read",
   "version": "1.0",
   "description": "Rates the Terms of Service and Privacy Policy of websites and services from a user rights perspective (http://tos-dr.info).",
   "homepage_url" : "http://tos-dr.info",
@@ -7,7 +7,7 @@
   "page_action" :
   {
     "default_icon" : "images/icon-19.png",
-    "default_title" : "TOS"
+    "default_title" : "Terms of Service; Didn’t Read"
   },
   "permissions" : [
     "tabs","http://tos-dr.info/","notifications"
