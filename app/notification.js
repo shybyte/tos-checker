@@ -119,4 +119,4 @@ jQuery(function () {
 
 });
 
-$('div').click(function(){ $('a.tosdr-link').click(); window.close(); }); //doesn't seem to work
+setTimeout(function(){ window.close();}, 10000);

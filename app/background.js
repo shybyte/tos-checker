@@ -4,25 +4,27 @@ function log(message) {
 
 var services = [];
 
-function loadService(serviceName,serviceIndexData) {
-    jQuery.ajax('http://tos-dr.info/services/' + serviceName + '.json', {success:function (service) {
+function loadService(serviceName, serviceIndexData) {
+    jQuery.ajax('http://tos-dr.info/services/' + serviceName + '.json', { success: function (service) {
         service.urlRegExp = new RegExp('https?://[^:]*' + service.url + '.*');
         service.points = serviceIndexData.points;
         service.links = serviceIndexData.links;
         if (!service.tosdr) {
-            service.tosdr = {rated:false};
+            service.tosdr = { rated: false };
         }
         services.push(service);
-        localStorage.setItem(serviceName,JSON.stringify(service));
-    }});
+        localStorage.setItem(serviceName, JSON.stringify(service));
+    }
+    });
 }
 
 
-jQuery.ajax('http://tos-dr.info/index/services2.json', {success:function (servicesIndex) {
+jQuery.ajax('http://tos-dr.info/index/services2.json', { success: function (servicesIndex) {
     for (var serviceName in servicesIndex) {
-        loadService(serviceName,servicesIndex[serviceName]);
+        loadService(serviceName, servicesIndex[serviceName]);
     }
-}});
+}
+});
 
 
 function getService(tab) {
@@ -34,16 +36,22 @@ function getService(tab) {
 
 function getIconForService(service) {
     var rated = service.tosdr.rated;
-    var imageName =  rated ? rated.toLowerCase() : 'false';
-    return '/images/class/'+imageName+'.png';
+    var imageName = rated ? rated.toLowerCase() : 'false';
+    return '/images/class/' + imageName + '.png';
 }
+
 
 function checkNotification(service) {
 
-    if (!notification) {
+    var last = localStorage.getItem('notification/' + service.name + '/last/update');
+    var lastRate = localStorage.getItem('notification/' + service.name + '/last/rate');
+    var shouldShow = false;
 
-        var last = localStorage.getItem('notification/' + service.name + '/last');
-        var shouldShow = false;
+    if (!service.tosdr.rated) { return; }
+
+    var rate = service.tosdr.rated;
+    console.log(rate);
+    if (rate === 'D' || rate === 'E') {
 
         if (last) {
             var lastModified = parseInt(Date.parse(last));
@@ -51,25 +59,28 @@ function checkNotification(service) {
             var daysSinceLast = (new Date().getTime() - lastModified) / (1000 * 60 * 60 * 24);
             log(daysSinceLast);
 
-            if (daysSinceLast > 40) {
+            if (daysSinceLast > 7) {
                 shouldShow = true;
             }
-
-
         } else {
             shouldShow = true;
         }
 
-        if (shouldShow) {
-
-            localStorage.setItem('notification/' + service.name + '/last', new Date().toDateString());
-
-            var notification = webkitNotifications.createHTMLNotification('notification.html#' + service.id);
-            notification.show();
-            console.log(notification);
-        }
-
+    } else if (lastRate === 'D' || lastRate === 'E') {
+        shouldShow = true;
     }
+
+
+    if (shouldShow) {
+
+        localStorage.setItem('notification/' + service.name + '/last/update', new Date().toDateString());
+        localStorage.setItem('notification/' + service.name + '/last/rate', rate);
+        var notification = webkitNotifications.createHTMLNotification('notification.html#' + service.id);
+        notification.show();
+        console.log(notification);
+    }
+
+
 
 }
 
@@ -82,7 +93,7 @@ function onUrlChanged(tabId, changeInfo, tab) {
         });
         chrome.pageAction.setPopup({
             tabId: tabId,
-            popup: 'popup.html#'+service.id
+            popup: 'popup.html#' + service.id
         })
         chrome.pageAction.show(tabId);
 
