@@ -8,5 +8,7 @@ This extension shows this rating for rated websites by an unintrusive icon in th
 You can click on this icon to get a list with the most important rated points of the website's term of services.
 Additional the extension will warn you when you visit for the first time a website with a bad rating.
 
+## Installation
+To install the newest released version go to: https://chrome.google.com/webstore/detail/hjdoplcnndgiblooccencgcggcoihigg .
 
-Instructions https://github.com/unhosted/ToS-DR/issues/11#issuecomment-7665593
+For installation of the newest development version see here: https://github.com/unhosted/ToS-DR/issues/11#issuecomment-7665593
