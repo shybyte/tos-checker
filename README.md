@@ -4,7 +4,7 @@ Chrome Extension which rates the Terms of Service and Privacy Policy of websites
 "Terms of Service; Didn't Read" is a user rights initiative to rate and label website terms & privacy policies,
 from very good (Class A) to very bad (Class E).
 
-This extension shows this rating for rated websites by an unintrusive icon in the adress bar.
+This extension shows this rating for rated websites by an unintrusive icon in the address bar.
 You can click on this icon to get a list with the most important rated points of the website's term of services.
 Additional the extension will warn you when you visit for the first time a website with a bad rating.
 
