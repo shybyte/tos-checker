@@ -76,7 +76,7 @@ jQuery(function () {
 
         // Add Links
         if (isEmpty(links)) {
-            bodyHtml += '<section><a href="/get-involved.html" class="btn" target="_blank"><i class="icon  icon-list-alt"></i> Get Involved</a></section>';
+            bodyHtml += '<section><a href="http://tos-dr.info/get-involved.html" class="btn" target="_blank"><i class="icon  icon-list-alt"></i> Get Involved</a></section>';
         } else {
             bodyHtml += '<section><h4>Read the Terms</h4><ul class="tosback2">';
             for (var i in links) {
