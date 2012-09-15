@@ -10,3 +10,8 @@ Installation
 To install the newest released version go to: https://chrome.google.com/webstore/detail/hjdoplcnndgiblooccencgcggcoihigg .
 
 For installation of the newest development version see here: https://github.com/unhosted/ToS-DR/issues/11#issuecomment-7665593
+
+License
+======
+
+This app is free software, licensed under: GNU Affero General Public License (AGPL-3.0). http://www.gnu.org/licenses/agpl-3.0.en.html
