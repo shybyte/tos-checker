@@ -1,14 +1,19 @@
-Chrome Extension which rates the Terms of Service and Privacy Policy of websites and services from a user rights perspective based on http://tos-dr.info.
+“Terms of Service; Didn't Read” Chrome extension
+=======
+This Chrome extension displays instantly while you browse the ratings of websites' **Terms of Service and Privacy Policy** with a focus on users' rights. The rating will display in the address bar as: class A to class E (good to bad). When you click on it, it displays the summary built from the www.tosdr.org community.
 
-“I have read and agree to the Terms” is the biggest lie on the web. We aim to fix that.
-"Terms of Service; Didn't Read" is a user rights initiative to rate and label website terms & privacy policies,
-from very good (Class A) to very bad (Class E).
 
-This extension shows this rating for rated websites by an unintrusive icon in the address bar.
-You can click on this icon to get a list with the most important rated points of the website's term of services.
-Additional the extension will warn you when you visit for the first time a website with a bad rating.
+Additionally, the extension will warn you when you visit for the first time a website with a bad rating.
 
-## Installation
+Installation
+========
 To install the newest released version go to: https://chrome.google.com/webstore/detail/hjdoplcnndgiblooccencgcggcoihigg .
 
 For installation of the newest development version see here: https://github.com/unhosted/ToS-DR/issues/11#issuecomment-7665593
+
+License
+======
+
+This app is free software, licensed under: GNU Affero General Public License (AGPL-3.0). http://www.gnu.org/licenses/agpl-3.0.en.html
+
+You can get the source code at http://github.com/didnotread/didnotread-chrome
