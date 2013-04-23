@@ -19,7 +19,7 @@ jQuery(function () {
 
     var points = service.points;
         for (var i = 0; i < points.length; i++) {
-            jQuery.ajax('http://tos-dr.info/points/' + points[i] + '.json', { success: function (dataPoint) {
+            jQuery.ajax('http://tosdr.org/points/' + points[i] + '.json', { success: function (dataPoint) {
 
                 switch (dataPoint.tosdr.point) {
                     case 'good': dataPoint.symbol = { badge: ' badge-success', icon: ' icon-plus ', sign: '+' }; break;
@@ -98,8 +98,8 @@ jQuery(function () {
     }
 
     function ViewModel(name, longName, domain, verdict, ratingText, points, links) {
-        this.link = 'http://tos-dr.info/#' + name;
-        this.logo = 'http://tos-dr.info/logo/' + name + '.png';
+        this.link = 'http://tosdr.org/#' + name;
+        this.logo = 'http://tosdr.org/logo/' + name + '.png';
         this.longName = longName;
         this.verdictText = verdict ? 'Class ' + verdict : 'No Class Yet';
         this.points = points;

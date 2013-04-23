@@ -1,7 +1,7 @@
 jQuery(function () {
 
     function renderDataPoint(service, dataPointId) {
-        jQuery.ajax('http://tos-dr.info/points/' + dataPointId + '.json', {success:function (dataPoint) {
+        jQuery.ajax('http://tosdr.org/points/' + dataPointId + '.json', {success:function (dataPoint) {
             var badge, icon, sign;
             if (dataPoint.tosdr.point == 'good') {
                 badge = 'badge-success';
@@ -63,7 +63,7 @@ jQuery(function () {
 
     function renderPopupHtml(name, longName, domain, verdict, ratingText, points, links) {
         var headerHtml = '<div class="modal-header">'
-            + '<h3><a href="http://tos-dr.info/#' + name + '" target="_blank"><img src="images/tosdr-logo-32.png" alt="" class="pull-left" />'
+            + '<h3><a href="http://tosdr.org/#' + name + '" target="_blank"><img src="images/tosdr-logo-32.png" alt="" class="pull-left" />'
             + '</a></small>'
             + '<button id="closeButton" data-dismiss="modal" class="close pull-right" type="button">×</button></h3></div>';
         var classHtml = '<div class="tosdr-rating"><label class="label ' + verdict + '">'
@@ -76,7 +76,7 @@ jQuery(function () {
 
         // Add Links
         if (isEmpty(links)) {
-            bodyHtml += '<section><a href="http://tos-dr.info/get-involved.html" class="btn" target="_blank"><i class="icon  icon-list-alt"></i> Get Involved</a></section>';
+            bodyHtml += '<section><a href="http://tosdr.org/get-involved.html" class="btn" target="_blank"><i class="icon  icon-list-alt"></i> Get Involved</a></section>';
         } else {
             bodyHtml += '<section><h4>Read the Terms</h4><ul class="tosback2">';
             for (var i in links) {

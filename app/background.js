@@ -5,7 +5,7 @@ function log(message) {
 var services = [];
 
 function loadService(serviceName, serviceIndexData) {
-    jQuery.ajax('http://tos-dr.info/services/' + serviceName + '.json', { success: function (service) {
+    jQuery.ajax('http://tosdr.org/services/' + serviceName + '.json', { success: function (service) {
         service.urlRegExp = new RegExp('https?://[^:]*' + service.url + '.*');
         service.points = serviceIndexData.points;
         service.links = serviceIndexData.links;
@@ -19,7 +19,7 @@ function loadService(serviceName, serviceIndexData) {
 }
 
 
-jQuery.ajax('http://tos-dr.info/index/services.json', { success: function (servicesIndex) {
+jQuery.ajax('http://tosdr.org/index/services.json', { success: function (servicesIndex) {
     for (var serviceName in servicesIndex) {
         loadService(serviceName, servicesIndex[serviceName]);
     }
