@@ -26,11 +26,11 @@ jQuery(function () {
             }
             document.getElementById('popup-point-' + service + '-' + dataPointId).innerHTML =
                 '<div class="' + dataPoint.tosdr.point + '"><h5><span class="badge ' + badge
-                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> <a target="_blank" href="' + dataPoint.discussion + '">' + dataPoint.name + '</a></h5><p>'
+                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> <a target="_blank" href="' + dataPoint.discussion + '">' + dataPoint.title + '</a></h5><p>'
                     + dataPoint.tosdr.tldr + '</p></div></li>';
             $('#popup-point-' + service + '-' + dataPointId).html(
                 '<div class="' + dataPoint.tosdr.point + '"><h5><span class="badge ' + badge
-                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> ' + dataPoint.name + ' <a href="' + dataPoint.discussion + '" target="_blank" class="label context">Discussion</a> <!--a href="' + dataPoint.source.terms + '" class="label context" target="_blank">Terms</a--></h5><p>'
+                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> ' + dataPoint.title + ' <a href="' + dataPoint.discussion + '" target="_blank" class="label context">Discussion</a> <!--a href="' + dataPoint.source.terms + '" class="label context" target="_blank">Terms</a--></h5><p>'
                     + dataPoint.tosdr.tldr + '</p></div></li>');
         }});
     }
