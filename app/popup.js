@@ -1,7 +1,6 @@
 jQuery(function () {
 
-    function renderDataPoint(service, dataPointId) {
-        jQuery.ajax('http://tosdr.org/points/' + dataPointId + '.json', {success:function (dataPoint) {
+    function renderDataPoint(dataPoint) {
             var badge, icon, sign;
             if (dataPoint.tosdr.point == 'good') {
                 badge = 'badge-success';
@@ -24,15 +23,9 @@ jQuery(function () {
                 icon = 'question-sign';
                 sign = '?';
             }
-            document.getElementById('popup-point-' + service + '-' + dataPointId).innerHTML =
-                '<div class="' + dataPoint.tosdr.point + '"><h5><span class="badge ' + badge
-                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> <a target="_blank" href="' + dataPoint.discussion + '">' + dataPoint.title + '</a></h5><p>'
+            return '<li class="point"><div class="' + dataPoint.tosdr.point + '"><h5><span class="badge ' + badge
+                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> ' + dataPoint.title + ' <a href="' + dataPoint.discussion + '" target="_blank" class="label context">Discussion</a></h5><p>'
                     + dataPoint.tosdr.tldr + '</p></div></li>';
-            $('#popup-point-' + service + '-' + dataPointId).html(
-                '<div class="' + dataPoint.tosdr.point + '"><h5><span class="badge ' + badge
-                    + '" title="' + dataPoint.tosdr.point + '"><i class="icon-' + icon + ' icon-white">' + sign + '</i></span> ' + dataPoint.title + ' <a href="' + dataPoint.discussion + '" target="_blank" class="label context">Discussion</a> <!--a href="' + dataPoint.source.terms + '" class="label context" target="_blank">Terms</a--></h5><p>'
-                    + dataPoint.tosdr.tldr + '</p></div></li>');
-        }});
     }
 
     var NOT_RATED_TEXT = "We haven't sufficiently reviewed the terms yet. Please contribute to our group: <a target=\"_blank\" href=\"https:\/\/groups.google.com/d/forum/tosdr\">tosdr@googlegroups.com</a>.";
@@ -68,11 +61,7 @@ jQuery(function () {
             + '<button id="closeButton" data-dismiss="modal" class="close pull-right" type="button">×</button></h3></div>';
         var classHtml = '<div class="tosdr-rating"><label class="label ' + verdict + '">'
             + (verdict ? 'Class ' + verdict : 'No Class Yet') + '</label><p>' + ratingText + '</p></div>';
-        var pointsHtml = '';
-        for (var i = 0; i < points.length; i++) {
-            pointsHtml += '<li id="popup-point-' + name + '-' + points[i] + '" class="point"></li>';
-        }
-        var bodyHtml = '<div class="modal-body">' + classHtml + '<section class="specificissues"> <ul class="tosdr-points">' + pointsHtml + '</ul></section>';
+        var bodyHtml = '<div class="modal-body">' + classHtml + '<section class="specificissues"> <ul class="tosdr-points"></ul></section>';
 
         // Add Links
         if (isEmpty(links)) {
@@ -85,12 +74,22 @@ jQuery(function () {
             bodyHtml += '</ul></section>';
         }
 
+        bodyHtml += '<a target="_blank" href="https://tosdr.org/get-involved.html">Get Involved!</a>';
+
         bodyHtml += '</div>';
 
         $('#page').html(headerHtml + bodyHtml);
-        for (var i = 0; i < points.length; i++) {
-            renderDataPoint(name, points[i]);
-        }
+
+        jQuery.ajax('https://tosdr.org/api/1/service/'+name+'.json', {success: function (serviceData) {
+          var dataPoints = _.sortBy(_.values(serviceData.pointsData), function (dataPoint) {
+            return 0 - dataPoint.tosdr.score;
+          });
+          dataPoints.forEach(function (dataPoint) {
+            $('.tosdr-points').append(renderDataPoint(dataPoint));
+          });
+          $('.tosdr-points a').attr('target', '_blank');
+        }});
+
     }
 
     var serviceName = window.location.hash.substr(1);
