@@ -10,7 +10,9 @@
     "default_title" : "Terms of Service; Didn’t Read"
   },
   "permissions" : [
-    "tabs","notifications"
+    "tabs",
+    "notifications",
+    "http://tosdr.org/*"
   ],
   "icons" : {
     "48" : "images/icon-48.png",
