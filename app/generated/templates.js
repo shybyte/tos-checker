@@ -59,7 +59,7 @@ function program5(depth0,data) {
 function program7(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n        <section><h4>Read the Terms</h4>\n            <ul class=\"tosback2\">\n                ";
+  buffer += "\n        <section>\n            <h4>Read the Terms</h4>\n            <ul class=\"tosback2\">\n                ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.linkList), {hash:{},inverse:self.noop,fn:self.program(8, program8, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            </ul>\n        </section>\n    ";
@@ -80,11 +80,11 @@ function program8(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"modal-header\">\n    <h3><a href=\"http://tosdr.org/#";
+  buffer += "<div class=\"modal-header\">\n    <h3>\n        <a href=\"http://tosdr.org/#";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" target=\"_blank\">\n        <img src=\"images/tosdr-logo-32.png\" alt=\"\" class=\"pull-left\"/>\n    </a></small>\n        <button id=\"closeButton\" data-dismiss=\"modal\" class=\"close pull-right\" type=\"button\">×</button>\n    </h3>\n</div>\n\n<div class=\"modal-body\">\n    <div class=\"tosdr-rating\">\n        <label class=\"label ";
+    + "\" target=\"_blank\">\n            <img src=\"images/tosdr-logo-32.png\" alt=\"\" class=\"pull-left\"/>\n        </a>\n        <button id=\"closeButton\" data-dismiss=\"modal\" class=\"close pull-right\" type=\"button\">×</button>\n    </h3>\n</div>\n\n<div class=\"modal-body\">\n\n    <div class=\"tosdr-rating\">\n        <label class=\"label ";
   if (helper = helpers['class']) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0['class']); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -95,7 +95,7 @@ function program8(depth0,data) {
   if (helper = helpers.ratingText) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.ratingText); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "</p>\n    </div>\n    <section class=\"specificissues\">\n        <ul class=\"tosdr-points\">\n            ";
+  buffer += "</p>\n    </div>\n\n    <section class=\"specificissues\">\n        <ul class=\"tosdr-points\">\n            ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.dataPoints), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n\n        </ul>\n    </section>\n\n    ";

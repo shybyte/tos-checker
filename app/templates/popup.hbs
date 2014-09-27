@@ -1,12 +1,14 @@
 <div class="modal-header">
-    <h3><a href="http://tosdr.org/#{{id}}" target="_blank">
-        <img src="images/tosdr-logo-32.png" alt="" class="pull-left"/>
-    </a></small>
+    <h3>
+        <a href="http://tosdr.org/#{{id}}" target="_blank">
+            <img src="images/tosdr-logo-32.png" alt="" class="pull-left"/>
+        </a>
         <button id="closeButton" data-dismiss="modal" class="close pull-right" type="button">×</button>
     </h3>
 </div>
 
 <div class="modal-body">
+
     <div class="tosdr-rating">
         <label class="label {{class}}">
             {{#if class}}
@@ -18,6 +20,7 @@
 
         <p>{{{ratingText}}}</p>
     </div>
+
     <section class="specificissues">
         <ul class="tosdr-points">
             {{#each dataPoints}}
@@ -40,7 +43,8 @@
     </section>
 
     {{#if linkList}}
-        <section><h4>Read the Terms</h4>
+        <section>
+            <h4>Read the Terms</h4>
             <ul class="tosback2">
                 {{#each linkList}}
                     <li><a target="_blank" href="{{url}}">{{name}}</a></li>
