@@ -3,10 +3,18 @@ function log(message) {
 }
 
 var services = [];
+var RATING_TEXT = {
+    "D": "The terms of service are very uneven or there are some important issues that need your attention.",
+    "E": "The terms of service raise very serious concerns."
+};
 
 function loadService(serviceName, serviceIndexData) {
     jQuery.ajax('http://tosdr.org/services/' + serviceName + '.json', { success: function (service) {
-        service.urlRegExp = new RegExp('https?://[^:]*' + service.url + '.*');
+        if (!service.url) {
+            console.log(serviceName+' has no service url');
+            return;
+        }
+        service.urlRegExp = createRegExpForServiceUrl(service.url);
         service.points = serviceIndexData.points;
         service.links = serviceIndexData.links;
         if (!service.tosdr) {
@@ -75,9 +83,24 @@ function checkNotification(service) {
 
         localStorage.setItem('notification/' + service.name + '/last/update', new Date().toDateString());
         localStorage.setItem('notification/' + service.name + '/last/rate', rate);
-        var notification = webkitNotifications.createHTMLNotification('notification.html#' + service.id);
-        notification.show();
-        console.log(notification);
+
+        var opt = {
+            type: "basic",
+            title: service.id,
+            message: RATING_TEXT[rate],
+            iconUrl: './images/icon-128.png'
+        }
+
+        var notification = chrome.notifications.create('tosdr-notify', opt, function(event){
+            console.log(event)
+        });
+
+        chrome.notifications.onButtonClicked.addListener(function(){
+            chrome.tabs.create({
+                url: 'http://tosdr.org/#' + service.id
+            });
+        });
+
     }
 
 
