@@ -1,16 +1,32 @@
-“Terms of Service; Didn't Read” Chrome extension
-================================================
-This Chrome extension displays instantly while you browse the ratings of websites' **Terms of Service and Privacy Policy** with a focus on users' rights. The rating will display in the address bar as: class A to class E (good to bad). When you click on it, it displays the summary built from the www.tosdr.org community.
+# Chrome extension for [Terms of Service; Didn't Read][tosdr]
 
-Additionally, the extension will warn you when you visit for the first time a website with a bad rating.
+“I have read and agree to the Terms” is the biggest lie on the web.
+We aim to fix that. “Terms of Service; Didn't Read” is a user
+rights initiative to rate and label website terms & privacy
+policies, from very good (class A) to very bad (class E).
+
+This extension informs you instantly of your rights online by
+showing an unintrusive icon in the toolbar. You can click on this
+icon to get summaries from the [Terms of Service; Didn't
+Read][tosdr] initiative. Additionally, the extension will warn you
+when you visit for the first time a website with a bad rating.
 
 Installation
 ============
 To install the newest released version go to: https://chrome.google.com/webstore/detail/hjdoplcnndgiblooccencgcggcoihigg .
 
-License
-=======
+[tosdr]: http://tosdr.org
 
-This app is free software, licensed under: GNU Affero General Public License (AGPL-3.0). http://www.gnu.org/licenses/agpl-3.0.en.html
+Screenshots
+=========
 
-You can get the source code at https://github.com/shybyte/tos-checker
+![screenshot](design/screenshots/screenshot-github.png)
+
+------------
+
+The extension is Free Software, licensed under the GNU Affero
+General Public License (AGPL-3.0). You can report bugs and
+contribute features at <https://github.com/tosdr/tosdr-chrome>.
+
+If you like it, please consider
+[contributing](http://tosdr.org/contribute.html) to the project.
