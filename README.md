@@ -1,5 +1,8 @@
 # Chrome extension for [Terms of Service; Didn't Read][tosdr]
 
+*This repo is abandoned now. But don't feel sad, just look at https://github.com/tosdr/browser-extensions
+or install the extension from https://chrome.google.com/webstore/detail/hjdoplcnndgiblooccencgcggcoihigg.*
+
 “I have read and agree to the Terms” is the biggest lie on the web.
 We aim to fix that. “Terms of Service; Didn't Read” is a user
 rights initiative to rate and label website terms & privacy
